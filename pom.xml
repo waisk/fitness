@@ -95,6 +95,13 @@
             <!--<scope>provided</scope>-->
         </dependency>
 	
+        <!-- mysql connection pool-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        
         <!-- Hibernate framework -->
         <dependency>
             <groupId>org.hibernate</groupId>
