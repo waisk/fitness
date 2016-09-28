@@ -26,3 +26,4 @@ hs_err_pid*
 */nbproject/build-impl.xml~
 */nbproject/*
 */generated-sources/*
+/target/
