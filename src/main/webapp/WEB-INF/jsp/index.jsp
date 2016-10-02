@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.apache.commons.lang3.StringUtils"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,19 +27,67 @@
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Awesome font-->
+        <link href="${pageContext.request.contextPath}/webjars/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- Bootstrap social-->
+        <link href="${pageContext.request.contextPath}/webjars/bootstrap-social/5.0.0/bootstrap-social.css" rel="stylesheet">
+
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
+
+        <!-- jQuery-->
+        <script src="${pageContext.request.contextPath}/webjars/jquery/2.2.3/jquery.min.js"></script>
+
+        <!-- Bootstrap-->
+        <script src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
+
+        <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
+
     </head>
     <!-- NAVBAR
     ================================================== -->
-    <body>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+        <div class="container-fluid" style="background-color:#f57b20;color:#fff;height:50px;">
+            <div class="row scrollspy-container">
+                <a href="https://www.facebook.com/AKFitnessStudio" target="_blank" class="btn btn-social-icon btn-facebook">
+                    <span class="fa fa-facebook"></span>
+                </a>
+                <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/akfitnessstudio" target="_blank">
+                    <span class="fa fa-twitter"></span>
+                </a>
+                <a class="btn btn-social-icon btn-instagram" href="http://instagram.com/akfitnessstudio" target="_blank">
+                    <span class="fa fa-instagram"></span>
+                </a>
+                <a class="btn btn-social-icon btn-youtube" href="https://www.youtube.com/user/akfitnessstudio" target="_blank">
+                    <span class="fa fa-youtube"></span>
+                </a>
+                <div class="pull-right">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" style="color:#0000FF; margin-top: 9px" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <spring:message code="Language" text="Language"/>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="allLanguages">
+                            <li><a href="?locale=en"><spring:message code="English" text="English"/></a></li>
+                            <li><a href="?locale=fr"><spring:message code="French" text="Français"/></a></li>
+                            <li><a href="?locale=es"><spring:message code="Spanish" text="Español"/></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<span class='icon shortcode  ' style='font-size:18px !important;color:#ffffff;'>&#57491;</span>  647-352-2515</span></div></div>					</div>-->
         <div class="navbar-wrapper">
             <div class="container">
 
-                <nav class="navbar navbar-inverse navbar-static-top">
+                <nav class="navbar navbar-default navbar-static-top" data-spy="affix" data-offset-top="50">
                     <div class="container">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,13 +96,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Project name</a>
+                            <img class="navbar-brand" src="${pageContext.request.contextPath}/resources/images/AK-Fitness-Logo400.png" alt="AK Fitness logo">
+                            <!--<a class="navbar-brand" href="#">AK Fitness</a>-->
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav navbar-right">
                                 <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#contact">Contact</a></li>
+                                <li><a href="#about"><spring:message code="About" text="About"/></a></li>
+                                <li><a href="#about"><spring:message code="Services" text="Services"/></a></li>
+                                <li><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>
+                                <li><a href="#contact"><spring:message code="Contact" text="Contact"/></a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -61,6 +116,14 @@
                                         <li class="dropdown-header">Nav header</li>
                                         <li><a href="#">Separated link</a></li>
                                         <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="Language" text="Language"/><span class="caret"></span></a>
+                                    <ul class="dropdown-menu" id="allLanguages">
+                                        <li><a href="?locale=en"><spring:message code="English" text="English"/></a></li>
+                                        <li><a href="?locale=fr"><spring:message code="French" text="Français"/></a></li>
+                                        <li><a href="?locale=es"><spring:message code="Spanish" text="Español"/></a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -83,27 +146,27 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                    <img class="first-slide" src="${pageContext.request.contextPath}/resources/images/fitness1.jpg" alt="AK Fitness online training slide 1">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Example headline.</h1>
-                            <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                            <h1><spring:message code="MakeItHappen" text="Make it happen!"/></h1>
+                            <p><spring:message code="MotivationQuote1" text="Are you willing to get to the next level? Do you have what it takes but don’t know how?"/></p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button"><spring:message code="SignUp" text="Sign up today"/></a></p>
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                    <img class="second-slide" src="${pageContext.request.contextPath}/resources/images/fitness2.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <h1><spring:message code="MotivationQuote2" text="Are you ready to get fit?"/></h1>
+                            <p><spring:message code="MotivationQuote2" text="Are you ready to get fit?"/></p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                    <img class="third-slide" src="${pageContext.request.contextPath}/resources/images/fitness3.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>One more for good measure.</h1>
@@ -203,16 +266,6 @@
             </footer>
 
         </div><!-- /.container -->
-
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
 

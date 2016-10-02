@@ -152,8 +152,6 @@
         </dependency>
         <!-- Hibernate library dependecy end -->
         
-        
-        <!-- Bootstrap-->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
@@ -172,6 +170,22 @@
             <artifactId>bootstrap</artifactId>
             <version>3.3.6</version>
         </dependency>
+        
+        
+        <!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>4.6.3</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.webjars.bower/bootstrap-social -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>bootstrap-social</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
         
         <dependency>
             <groupId>org.webjars</groupId>
