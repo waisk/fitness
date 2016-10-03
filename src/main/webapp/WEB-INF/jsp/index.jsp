@@ -54,7 +54,11 @@
     ================================================== -->
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-        <div class="container-fluid" style="background-color:#f57b20;color:#fff;height:50px;">
+        <%@ include file="header.jsp" %>
+        <script type="text/javascript">
+            $('#homeNav').addClass('active');
+        </script>
+<!--        <div class="container-fluid" style="background-color:#f57b20;color:#fff;height:50px;">
             <div class="row scrollspy-container">
                 <a href="https://www.facebook.com/AKFitnessStudio" target="_blank" class="btn btn-social-icon btn-facebook">
                     <span class="fa fa-facebook"></span>
@@ -83,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <!--<span class='icon shortcode  ' style='font-size:18px !important;color:#ffffff;'>&#57491;</span>  647-352-2515</span></div></div>					</div>-->
+        <span class='icon shortcode  ' style='font-size:18px !important;color:#ffffff;'>&#57491;</span>  647-352-2515</span></div></div>					</div>
         <div class="navbar-wrapper">
             <div class="container">
 
@@ -97,13 +101,13 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <img class="navbar-brand" src="${pageContext.request.contextPath}/resources/images/AK-Fitness-Logo400.png" alt="AK Fitness logo">
-                            <!--<a class="navbar-brand" href="#">AK Fitness</a>-->
+                            <a class="navbar-brand" href="#">AK Fitness</a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active"><a href="#">Home</a></li>
                                 <li><a href="#about"><spring:message code="About" text="About"/></a></li>
-                                <li><a href="#about"><spring:message code="Services" text="Services"/></a></li>
+                                <li><a href="/fitness/services"><spring:message code="Services" text="Services"/></a></li>
                                 <li><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>
                                 <li><a href="#contact"><spring:message code="Contact" text="Contact"/></a></li>
                                 <li class="dropdown">
@@ -118,14 +122,14 @@
                                         <li><a href="#">One more separated link</a></li>
                                     </ul>
                                 </li>
-                                <!--                                <li class="dropdown">
+                                                                <li class="dropdown">
                                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="Language" text="Language"/><span class="caret"></span></a>
                                                                     <ul class="dropdown-menu" id="allLanguages">
                                                                         <li><a href="?locale=en"><spring:message code="English" text="English"/></a></li>
                                                                         <li><a href="?locale=fr"><spring:message code="French" text="Français"/></a></li>
                                                                         <li><a href="?locale=es"><spring:message code="Spanish" text="Español"/></a></li>
                                                                     </ul>
-                                                                </li>-->
+                                                                </li>
 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
@@ -153,9 +157,9 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                                <!--							<div class="bottom text-center">
+                                                							<div class="bottom text-center">
                                                                                                                 New here ? <a href="#"><b>Join Us</b></a>
-                                                                                                        </div>-->
+                                                                                                        </div>
                                             </div>
                                         </li>
                                     </ul>
@@ -167,7 +171,7 @@
                 </nav>
 
             </div>
-        </div>
+        </div>-->
 
 
         <!-- Carousel
@@ -257,16 +261,16 @@
 
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <h2 class="featurette-heading">COACH AK (ATIF KHEDRI)</h2>
+                    <p class="lead"><small>As the founder of AK Fitness – my clients and I have overcome physical parameters and exceeded expectations of many – parents wanting more for their children, individuals in their prime and baby-boomers taking care of their health. Let’s discuss your needs and make it happen! Before forming AK fitness – I played soccer at elite levels and have participated at numerous international fitness model competitions and have been rewarded and recognized amongst the very best in the industry. I have been certified and possess the necessary credentials to help you ignite your passion and fuel the journey.The AK Fitness “Body Morphing” blueprint will pave the path to your desired outcomes. You provide the will and we will be the fuel for the journey. At AK fitness Your success is OUR mission. We don’t stop until you reach your goal. Choose your destiny and Let’s make it Happen!</small></p>
                 </div>
                 <div class="col-md-5">
-                    <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+                    <img class="featurette-image img-responsive center-block" src="${pageContext.request.contextPath}/resources/images/ak2.jpg" alt="Atif Khedri Profile Pic">
                 </div>
             </div>
 
             <hr class="featurette-divider">
-
+<!--
             <div class="row featurette">
                 <div class="col-md-7 col-md-push-5">
                     <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
@@ -289,7 +293,7 @@
                 </div>
             </div>
 
-            <hr class="featurette-divider">
+            <hr class="featurette-divider">-->
 
             <!-- /END THE FEATURETTES -->
 
