@@ -3,7 +3,7 @@
     Created on : 2-Oct-2016, 7:50:28 PM
     Author     : wais
 --%>
-
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

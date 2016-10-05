@@ -213,6 +213,9 @@
                 </div>
             </div>
         </div>
+        
+        <!-- FOOTER -->
+        <%@ include file="footer.jsp" %>
 
     </body>
 </html>
