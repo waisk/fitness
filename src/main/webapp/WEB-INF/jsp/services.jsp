@@ -51,6 +51,7 @@
             $('#servicesNav').addClass('active');
         </script>
         <div class="container">
+            <div class="container marketing">
             <div class="row">
                 <br/><br/><br/><br/>
                 <h1>Welcome to AK Fitness online training package deals</h1>
@@ -212,10 +213,11 @@
                     </div>
                 </div>
             </div>
+                
+                <!-- FOOTER -->
+        <%@ include file="footer.jsp" %>
+            </div>
         </div>
         
-        <!-- FOOTER -->
-        <%@ include file="footer.jsp" %>
-
     </body>
 </html>

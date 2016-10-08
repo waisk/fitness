@@ -75,7 +75,7 @@
                         <div class="carousel-caption">
                             <h1><spring:message code="MakeItHappen" text="Make it happen!"/></h1>
                             <p><spring:message code="MotivationQuote1" text="Are you willing to get to the next level? Do you have what it takes but don’t know how?"/></p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button"><spring:message code="SignUp" text="Sign up today"/></a></p>
+                            <p><a class="btn btn-lg btn-primary" href="/fitness/services" role="button"><spring:message code="SignUp" text="Sign up today"/></a></p>
                         </div>
                     </div>
                 </div>

@@ -54,7 +54,7 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li id="homeNav"><a href="/fitness">Home</a></li>
+                                <li id="homeNav"><a href="/fitness"><spring:message code="Home" text="Home"/></a></li>
                                 <li id="aboutNav"><a href="/about"><spring:message code="About" text="About"/></a></li>
                                 <li id="servicesNav" ><a href="/fitness/services"><spring:message code="Services" text="Services"/></a></li>
                                 <li id="testimonialsNav"><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>
@@ -81,7 +81,7 @@
                                                                 </li>-->
 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><spring:message code="Login" text="Login"/></b> <span class="caret"></span></a>
                                     <ul id="login-dp" class="dropdown-menu">
                                         <li>
                                             <div class="row">
