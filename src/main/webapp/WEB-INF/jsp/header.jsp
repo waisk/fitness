@@ -7,6 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <head>
+        <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
+    </head>
+    <script type="text/javascript">
+//                var sessionExpired = false;
+//
+//                if(${sessionExpired} == true){
+//                    sessionExpired = true;
+//                }
+
+                isLoginValid =  ${isLoginValid};
+    </script>
     <body>
         <div class="container-fluid" style="background-color:#f57b20;color:#fff;height:50px;">
             <div class="row scrollspy-container">
@@ -59,26 +71,6 @@
                                 <li id="servicesNav" ><a href="/fitness/services"><spring:message code="Services" text="Services"/></a></li>
                                 <li id="testimonialsNav"><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>
                                 <li id="contactNav"><a href="#contact"><spring:message code="Contact" text="Contact"/></a></li>
-<!--                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li class="dropdown-header">Nav header</li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                    </ul>
-                                </li>-->
-                                <!--                                <li class="dropdown">
-                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="Language" text="Language"/><span class="caret"></span></a>
-                                                                    <ul class="dropdown-menu" id="allLanguages">
-                                                                        <li><a href="?locale=en"><spring:message code="English" text="English"/></a></li>
-                                                                        <li><a href="?locale=fr"><spring:message code="French" text="Français"/></a></li>
-                                                                        <li><a href="?locale=es"><spring:message code="Spanish" text="Español"/></a></li>
-                                                                    </ul>
-                                                                </li>-->
 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><spring:message code="Login" text="Login"/></b> <span class="caret"></span></a>
@@ -86,22 +78,24 @@
                                         <li>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                                    <form class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
                                                         <div class="form-group">
-                                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                                            <label class="sr-only" for="email"><spring:message code="EmailAddress" text="Email address"/></label>
+                                                            <spring:message code="EmailAddress" var="EmailAddress" text="Email address"/>
+                                                            <input type="email" class="form-control" id="email" placeholder="${EmailAddress}" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                                            <label class="sr-only" for="password"><spring:message code="Password" text="Password"/></label>
+                                                            <spring:message code="Password" var="Password" text="Password"/>
+                                                            <input type="password" class="form-control" id="password" placeholder="${Password}" required>
+                                                            <div class="help-block text-right"><a href="" data-toggle="modal" data-target=".forgotPasswordBtn"><spring:message code="ForgetPassword" text="Forgot your password?"/></a></div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                                            <button type="submit" class="btn btn-primary btn-block" id="signInBtn"><spring:message code="SignIn" text="Sign in"/></button>
                                                         </div>
                                                         <div class="checkbox">
                                                             <label>
-                                                                <input type="checkbox"> keep me logged-in
+                                                                <input type="checkbox"> <spring:message code="RememberMe" text="keep me logged-in"/>
                                                             </label>
                                                         </div>
                                                     </form>
@@ -121,5 +115,11 @@
 
             </div>
         </div>
+                                                            <jsp:include page="forgot_password_modal.jsp" />
+                                                            <jsp:include page="invalid_credentials_modal.jsp" />
+                                                            <jsp:include page="session_expired_modal.jsp" />
+                                                            
+                                                            
+                                                            
     </body>
 </html>
