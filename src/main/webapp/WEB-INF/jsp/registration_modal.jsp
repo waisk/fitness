@@ -22,17 +22,17 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="<spring:message code="FirstName" text="First Name"/>" tabindex="1">
+                                        <input type="text" name="first_name" id="firstName" class="form-control" placeholder="<spring:message code="FirstName" text="First Name"/>" tabindex="1">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="<spring:message code="LastName" text="Last Name"/>" tabindex="2">
+                                        <input type="text" name="last_name" id="lastName" class="form-control" placeholder="<spring:message code="LastName" text="Last Name"/>" tabindex="2">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="display_name" id="display_name" class="form-control" placeholder="<spring:message code="DisplayName" text="Display Name"/>" tabindex="3">
+                                <input type="text" name="display_name" id="displayName" class="form-control" placeholder="<spring:message code="DisplayName" text="Display Name"/>" tabindex="3">
                             </div>
                             <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control" placeholder="<spring:message code="EmailAddress" text="Email Address"/>" tabindex="4">
@@ -45,23 +45,23 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="<spring:message code="ConfirmPassword" text="Confirm Password"/>" tabindex="6">
+                                        <input type="password" name="password_confirmation" id="passwordConfirmation" class="form-control" placeholder="<spring:message code="ConfirmPassword" text="Confirm Password"/>" tabindex="6">
                                     </div>
                                 </div>
                             </div>
                             
                                 <div class="form-group">
-                                        <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="<spring:message code="CardHolderName" text="Card Holder's Name"/>">
+                                        <input type="text" class="form-control" name="card-holder-name" id="cardHolderName" placeholder="<spring:message code="CardHolderName" text="Card Holder's Name"/>">
                                 </div>
                                 <div class="form-group">
-                                        <input type="text" class="form-control" name="card-number" id="card-number" placeholder="<spring:message code="DebitCreditCardNumber" text="Debit/Credit Card Number"/>">
+                                        <input type="text" class="form-control" name="card-number" id="cardNumber" placeholder="<spring:message code="DebitCreditCardNumber" text="Debit/Credit Card Number"/>">
                                 </div>
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-xs-12 col-sm-12 col-md-10">
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                                                <select class="form-control" name="expiry-month" id="expiry-month">
+                                                <select class="form-control" name="expiryMonth" id="expiryMonth">
                                                     <option><spring:message code="Month" text="Month"/></option>
                                                     <option value="01">Jan (01)</option>
                                                     <option value="02">Feb (02)</option>
@@ -78,7 +78,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                                                <select class="form-control" name="expiry-year">
+                                                <select class="form-control" name="expiryYear" id="expiryYear">
                                                     <option><spring:message code="Year" text="Year"/></option>
                                                     <option value="13">2013</option>
                                                     <option value="14">2014</option>
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3"><input type="submit" value="<spring:message code="Register" text="Register"/>" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3"><input type="submit" id="registerBtn" value="<spring:message code="Register" text="Register"/>" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                             </div>
                         </form>
                     </div>
