@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-isLoginValid = true;
+var isLoginValid = true;
 supplierPovOnlineId = "";
 jQuery(document).ready(function($) {
 //   if(isLoginValid == true){

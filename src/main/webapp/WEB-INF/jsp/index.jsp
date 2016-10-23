@@ -38,7 +38,7 @@
 
         <!-- Custom styles for this template -->
         <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
-
+        
         <!-- jQuery-->
         <script src="${pageContext.request.contextPath}/webjars/jquery/2.2.3/jquery.min.js"></script>
 
@@ -48,7 +48,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
 
         <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
-
+        
     </head>
     <!-- NAVBAR
     ================================================== -->
@@ -181,6 +181,7 @@
             <hr class="featurette-divider">-->
 
             <!-- /END THE FEATURETTES -->
+
 
 
             <!-- FOOTER -->

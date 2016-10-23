@@ -17,7 +17,7 @@
 //                    sessionExpired = true;
 //                }
 
-                isLoginValid =  ${isLoginValid};
+                //isLoginValid =  ${isLoginValid};
     </script>
     <body>
         <div class="container-fluid" style="background-color:#f57b20;color:#fff;height:50px;">
