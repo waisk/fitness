@@ -47,6 +47,10 @@
         <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
 
         <script src="${pageContext.request.contextPath}/resources/js/serviceRegistration.js"></script>
+        
+        <script src="${pageContext.request.contextPath}/webjars/jquery-validation/1.15.1/jquery.validate.min.js"></script>
+        <script src="${pageContext.request.contextPath}/webjars/jquery.payment/1.4.1/lib/jquery.payment.min.js"></script>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 
     </head>
