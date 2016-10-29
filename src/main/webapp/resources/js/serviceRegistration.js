@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 
         var jsonRequest = JSON.stringify({"firstName": firstName, "lastName":lastName,"displayName":displayName, "email":email,
         "password":password, "passwordConfirmation":passwordConfirmation, "cardHolderName":cardHolderName, "cardNumber":cardNumber,
-        "expiryMonth":expiryMonth, "expiryYear":expiryYear, "cvv":cvv});
+        "expiryMonth":expiryMonth, "expiryYear":expiryYear, "cvv":cvv, "trainingPackage":trainingPackage});
 
         $.ajax({
             type: "POST",
@@ -57,8 +57,6 @@ jQuery(document).ready(function($) {
             }
         });
         
-        trainingPackage = 3;
-        $('#registrationModal').modal('hide');
     });
     
     
