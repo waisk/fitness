@@ -23,43 +23,51 @@ jQuery(document).ready(function ($) {
     });
 
 //    $("#registerBtn").bind('click', function () {
-//
-//        //get all informations and register user and verify that credit card passed
-//        var firstName = $("#firstName").val();
-//        var lastName = $("#lastName").val();
-//        var displayName = $("#displayName").val();
-//        var email = $("#email").val();
-//        var password = $("#password").val();
-//        var passwordConfirmation = $("#passwordConfirmation").val();
-//        var cardHolderName = $("#cardHolderName").val();
-//        var cardNumber = $("#cardNumber").val();
-//        var expiryMonth = $("#expiryMonth").val();
-//        var expiryYear = $("#expiryYear").val();
-//        var cvv = $("#cvv").val();
-//
-//        var jsonRequest = JSON.stringify({"firstName": firstName, "lastName": lastName, "displayName": displayName, "email": email,
-//            "password": password, "passwordConfirmation": passwordConfirmation, "cardHolderName": cardHolderName, "cardNumber": cardNumber,
-//            "expiryMonth": expiryMonth, "expiryYear": expiryYear, "cvv": cvv, "trainingPackage": trainingPackage});
-//
-//        $.ajax({
-//            type: "POST",
-//            contentType: "application/json",
-//            url: "/fitness/registration",
-//            data: jsonRequest,
-//            success: function (data) {
-//                $('#registrationModal').modal('hide');
-//                //log him and return him to training page
-//
-//            },
-//            error: function (e) {
-//                console.log("ERROR: ", e);
-//                $('#resetPasswordErrorModal').modal();
-//            }
-//        });
-//
-//    });
+
+
 
 });
+
+function registerUser(creditCardToken) {
+    //get all informations and register user and verify that credit card passed
+    var firstName = $("#firstName").val();
+    var lastName = $("#lastName").val();
+    var displayName = $("#displayName").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
+    var passwordConfirmation = $("#passwordConfirmation").val();
+    var cardHolderName = $("#cardHolderName").val();
+
+    var jsonRequest = JSON.stringify({"firstName": firstName, "lastName": lastName, "displayName": displayName, "email": email,
+        "password": password, "passwordConfirmation": passwordConfirmation, "cardHolderName": cardHolderName, "creditCardToken": creditCardToken,
+        "trainingPackage": trainingPackage});
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/fitness/registration",
+        data: jsonRequest,
+        success: function (data) {
+            $('#registrationModal').modal('hide');
+            $('#invalidEmailExceptionModal').modal('hide');
+            $('#invalidCreditCardModal').modal('hide');
+            $('#registrationErrorModal').modal('hide');
+            //log him and return him to training page
+
+        },
+        error: function (response) {
+            
+            if(response.responseText === "invalidEmailException"){
+                $('#invalidEmailExceptionModal').modal();
+            }else if(response.responseText === "invalidCreditCard"){
+                $('#invalidCreditCardModal').modal();
+            }else{
+                $('#registrationErrorModal').modal();
+            }
+        }
+    });
+
+}
 
 jQuery(document).ready(function ($) {
     var $form = $('#registrationForm');
@@ -107,19 +115,20 @@ jQuery(document).ready(function ($) {
                 console.log(response.card);
                 var token = response.id;
                 // AJAX - you would send 'token' to your server here.
-                $.post('/account/stripe_card_token', {
-                    token: token
-                })
-                        // Assign handlers immediately after making the request,
-                        .done(function (data, textStatus, jqXHR) {
-                            $form.find('.subscribe').html('Payment successful <i class="fa fa-check"></i>');
-                        })
-                        .fail(function (jqXHR, textStatus, errorThrown) {
-                            $form.find('.subscribe').html('There was a problem').removeClass('success').addClass('error');
-                            /* Show Stripe errors on the form */
-                            $form.find('.payment-errors').text('Try refreshing the page and trying again.');
-                            $form.find('.payment-errors').closest('.row').show();
-                        });
+                registerUser(token);
+//                $.post('/account/stripe_card_token', {
+//                    token: token
+//                })
+//                        // Assign handlers immediately after making the request,
+//                        .done(function (data, textStatus, jqXHR) {
+//                            $form.find('.subscribe').html('Payment successful <i class="fa fa-check"></i>');
+//                        })
+//                        .fail(function (jqXHR, textStatus, errorThrown) {
+//                            $form.find('.subscribe').html('There was a problem').removeClass('success').addClass('error');
+//                            /* Show Stripe errors on the form */
+//                            $form.find('.payment-errors').text('Try refreshing the page and trying again.');
+//                            $form.find('.payment-errors').closest('.row').show();
+//                        });
             }
         });
     }
