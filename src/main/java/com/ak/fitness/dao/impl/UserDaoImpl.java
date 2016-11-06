@@ -29,5 +29,31 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
 
         return (User) query.uniqueResult();
     }
+
+    @Override
+    public User valiateUserEmail(String email) {
+        
+        SQLQuery query = getAppropriateSessionNew().createSQLQuery("select *"
+                + " from user u"
+                + " where (u.email ='" + email+"';"
+        );
+
+        query.setResultTransformer(Transformers.aliasToBean(User.class));
+
+        return (User) query.uniqueResult();
+        
+    }
+
+    @Override
+    public User validateUsername(String username) {
+        SQLQuery query = getAppropriateSessionNew().createSQLQuery("select *"
+                + " from user u"
+                + " where (u.username ='" + username+"';"
+        );
+
+        query.setResultTransformer(Transformers.aliasToBean(User.class));
+
+        return (User) query.uniqueResult();
+    }
     
 }

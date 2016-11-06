@@ -59,6 +59,8 @@ function registerUser(creditCardToken) {
             
             if(response.responseText === "invalidEmailException"){
                 $('#invalidEmailExceptionModal').modal();
+            }else if(response.responseText === "invalidDisplayNameException"){
+                $('#invalidDisplayNameExceptionModal').modal();
             }else if(response.responseText === "invalidCreditCard"){
                 $('#invalidCreditCardModal').modal();
             }else{

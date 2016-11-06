@@ -33,12 +33,16 @@ public class RegistrationController {
     
     @ResponseBody
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public void register(@RequestBody JSONObject json, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void register(@RequestBody JSONObject json, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         System.out.println("start registration");
-        //verify is username(email is unique)
+        //verify if email is unique
+        User u = null;
         try{
-            registrationService.validateEmail(json.get("email").toString());
+            u = registrationService.validateEmail(json.get("email").toString());
+            if(u != null){
+                throw new Exception();
+            }
         }catch(Exception ex){
             //If not unique, throw error
             response.setStatus(400);
@@ -46,9 +50,21 @@ public class RegistrationController {
             throw ex;
         }
         
-        System.out.println("not suppose to get here");
+        //verify if username is unique
+        try{
+            u = registrationService.validateUsername(json.get("displayName").toString());
+            if(u != null){
+                throw new Exception();
+            }
+        }catch(Exception ex){
+            //If not unique, throw error
+            response.setStatus(400);
+            response.getWriter().write("invalidDisplayNameException");
+            throw ex;
+        }
         
-        //If email unique, validate user credit card number
+        
+        //If email and username unique, validate user credit card number
         try{
             registrationService.validateCreditCardToken(json.get("creditCardToken").toString());
         }catch(Exception ex){
@@ -57,7 +73,6 @@ public class RegistrationController {
             throw ex;
         }
         
-        User u = null;
         try{
             u = registrationService.registerUser(json);
         }catch(Exception ex){
@@ -68,8 +83,8 @@ public class RegistrationController {
         //If valid, register user && open session for new user
         HttpSession session = request.getSession();
         
-        //set user in the sessino
-        session.setAttribute("userId", u);
+        //set user in the session
+        session.setAttribute("user", u);
         
         System.out.println("end of registration");
         response.setStatus(200);

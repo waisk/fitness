@@ -5,8 +5,10 @@
  */
 package com.ak.fitness.services;
 
+import com.ak.fitness.dao.UserDao;
 import com.ak.fitness.entities.User;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,8 +18,8 @@ import org.springframework.stereotype.Service;
 @Service("registrationService")
 public class RegistrationService {
 
-    //@Autowired
-    //UserDao userDao;
+    @Autowired
+    UserDao userDao;
     
     public User registerUser(JSONObject json){
         String firstName = (String) json.get("firstName");
@@ -37,11 +39,15 @@ public class RegistrationService {
 
     }
 
-    public void validateEmail(String toString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User validateEmail(String email) {
+        return userDao.valiateUserEmail(email);
     }
 
     public void validateCreditCardToken(String toString) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public User validateUsername(String username) {
+        return userDao.validateUsername(username);
     }
 }

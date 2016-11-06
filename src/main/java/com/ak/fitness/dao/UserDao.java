@@ -14,4 +14,8 @@ import com.ak.fitness.entities.User;
 public interface UserDao {
     
     public User valiateUserCredentials(String username, String password);
+
+    public User valiateUserEmail(String email);
+
+    public User validateUsername(String username);
 }
