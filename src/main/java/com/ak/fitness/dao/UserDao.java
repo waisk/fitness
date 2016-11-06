@@ -18,4 +18,7 @@ public interface UserDao {
     public User valiateUserEmail(String email);
 
     public User validateUsername(String username);
+
+    public void createUser(User u);
+
 }

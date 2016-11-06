@@ -55,5 +55,10 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
 
         return (User) query.uniqueResult();
     }
+
+    @Override
+    public void createUser(User u) {
+        persist(u);
+    }
     
 }

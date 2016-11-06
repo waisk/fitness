@@ -22,20 +22,32 @@ public class RegistrationService {
     UserDao userDao;
     
     public User registerUser(JSONObject json){
+        User u = new User();
         String firstName = (String) json.get("firstName");
         String lastName = (String)json.get("lastName");
-        String displayName = (String)json.get("displayName");
+        String userName = (String)json.get("displayName");
         String email = (String)json.get("email");
         String password = (String)json.get("password");
-        String passwordConfirmation = (String)json.get("passwordConfirmation");
-        String cardHolderName = (String)json.get("cardHolderName");
-        int cardNumber = (Integer)json.get("cardNumber");
-        int cardExpiry = (Integer) json.get("cardExpiry");
-        int cvv = (Integer)json.get("cvv");
+//        String passwordConfirmation = (String)json.get("passwordConfirmation");
+//        String cardHolderName = (String)json.get("cardHolderName");
+//        int cardNumber = (Integer)json.get("cardNumber");
+//        int cardExpiry = (Integer) json.get("cardExpiry");
+//        int cvv = (Integer)json.get("cvv");
         int trainingPackage = (Integer)json.get("trainingPackage");
         
         
-        return new User();
+        u.setFirstname(firstName);
+        u.setLastname(lastName);
+        u.setUsername(userName);
+        u.setPassword(password);
+        
+        userDao.createUser(u);
+        
+        //get username
+        User persistedUser = userDao.valiateUserEmail(u.getEmail());
+        //create subscription for user
+        
+        return persistedUser;
 
     }
 
