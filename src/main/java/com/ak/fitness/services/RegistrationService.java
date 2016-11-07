@@ -5,7 +5,9 @@
  */
 package com.ak.fitness.services;
 
+import com.ak.fitness.dao.SubscriptionDao;
 import com.ak.fitness.dao.UserDao;
+import com.ak.fitness.entities.Subscription;
 import com.ak.fitness.entities.User;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class RegistrationService {
 
     @Autowired
     UserDao userDao;
+    
+    @Autowired
+    SubscriptionDao subscriptionDao;
     
     public User registerUser(JSONObject json){
         User u = new User();
@@ -46,6 +51,13 @@ public class RegistrationService {
         //get username
         User persistedUser = userDao.valiateUserEmail(u.getEmail());
         //create subscription for user
+        Subscription subscription = new Subscription();
+        subscription.setIduser(persistedUser.getIduser());
+        subscription.setPackage1(trainingPackage);
+        subscription.setValid(true);
+        //set date for subscription too
+        subscriptionDao.createSubscription(subscription);
+        
         
         return persistedUser;
 
