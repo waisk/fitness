@@ -10,7 +10,7 @@
 
 <div class="modal fade" id="invalidDisplayNameExceptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modalError">
             <div class="modal-body" style="overflow-x: auto">
                 <button type="button" class="close" data-dismiss="modal" >&times;</button>
                 <spring:message code="DuplicateUsername" text="Username already exists"/>
