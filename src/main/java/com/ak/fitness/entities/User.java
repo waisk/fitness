@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author wais
  */
 @Entity
-@Table(catalog = "akfitness", schema = "akfitness", uniqueConstraints = {
+@Table(name = "user", catalog = "akfitness", schema = "akfitness", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"iduser"}),
     @UniqueConstraint(columnNames = {"email"}),
     @UniqueConstraint(columnNames = {"username"})})

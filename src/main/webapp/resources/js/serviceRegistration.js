@@ -28,13 +28,15 @@ jQuery(document).ready(function ($) {
 
 });
 
+
+
 function registerUser(creditCardToken) {
     //get all informations and register user and verify that credit card passed
     var firstName = $("#firstName").val();
     var lastName = $("#lastName").val();
     var displayName = $("#displayName").val();
-    var email = $("#email").val();
-    var password = $("#password").val();
+    var email = $("#r_email").val();
+    var password = $("#r_password").val();
     var passwordConfirmation = $("#passwordConfirmation").val();
     var cardHolderName = $("#cardHolderName").val();
 
@@ -53,6 +55,7 @@ function registerUser(creditCardToken) {
             $('#invalidCreditCardModal').modal('hide');
             $('#registrationErrorModal').modal('hide');
             //log him and return him to training page
+            logIn(email, password);
 
         },
         error: function (response) {

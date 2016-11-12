@@ -6,6 +6,7 @@
 package com.ak.fitness.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author wais
  */
 @Entity
-@Table(catalog = "akfitness", schema = "akfitness", uniqueConstraints = {
+@Table(name = "subscription", catalog = "akfitness", schema = "akfitness", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"idsubscription"})})
 @XmlRootElement
 @NamedQueries({
@@ -50,6 +53,16 @@ public class Subscription implements Serializable {
     @Column(nullable = false)
     private boolean valid;
     private Integer iduser;
+    @Basic(optional = false)
+    @NotNull
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationdate;
+    @Basic(optional = false)
+    @NotNull
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedate;
 
     public Subscription() {
     }
@@ -58,10 +71,12 @@ public class Subscription implements Serializable {
         this.idsubscription = idsubscription;
     }
 
-    public Subscription(Integer idsubscription, int package1, boolean valid) {
+    public Subscription(Integer idsubscription, int package1, boolean valid, Date creationdate, Date updatedate) {
         this.idsubscription = idsubscription;
         this.package1 = package1;
         this.valid = valid;
+        this.creationdate = creationdate;
+        this.updatedate = updatedate;
     }
 
     public Integer getIdsubscription() {
@@ -94,6 +109,23 @@ public class Subscription implements Serializable {
 
     public void setIduser(Integer iduser) {
         this.iduser = iduser;
+    }
+    
+    
+    public Date getCreationdate() {
+        return creationdate;
+    }
+
+    public void setCreationdate(Date creationdate) {
+        this.creationdate = creationdate;
+    }
+
+    public Date getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(Date updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override

@@ -35,12 +35,12 @@
                                 <input type="text" name="display_name" id="displayName" class="form-control" placeholder="<spring:message code="DisplayName" text="Display Name"/>" tabindex="3">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="<spring:message code="EmailAddress" text="Email Address"/>" tabindex="4">
+                                <input type="email" name="email" id="r_email" class="form-control" placeholder="<spring:message code="EmailAddress" text="Email Address"/>" tabindex="4">
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control" placeholder="<spring:message code="Password" text="Password"/>" tabindex="5">
+                                        <input type="password" name="password" id="r_password" class="form-control" placeholder="<spring:message code="Password" text="Password"/>" tabindex="5">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -117,3 +117,7 @@
         </div>
     </div>
 </div>
+                                <jsp:include page="invalidCreditCardModal.jsp" />
+                                <jsp:include page="invalidDisplayNameExceptionModal.jsp" />
+                                <jsp:include page="invalidEmailExceptionModal.jsp" />
+                            

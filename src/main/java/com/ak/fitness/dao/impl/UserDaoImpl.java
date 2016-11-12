@@ -20,7 +20,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
 
     @Override
     public User valiateUserCredentials(String username, String password) {
-        SQLQuery query = getAppropriateSessionNew().createSQLQuery("select distinct u.idUser"
+        SQLQuery query = getAppropriateSessionNew().createSQLQuery("select distinct *"
                 + " from user u"
                 + " where (u.email ='" + username + "' OR u.username ='" + username + "') AND u.password ='" + password + "';"
         );
@@ -35,7 +35,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
         
         SQLQuery query = getAppropriateSessionNew().createSQLQuery("select *"
                 + " from user u"
-                + " where (u.email ='" + email+"';"
+                + " where u.email ='" + email+"';"
         );
 
         query.setResultTransformer(Transformers.aliasToBean(User.class));
@@ -48,7 +48,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
     public User validateUsername(String username) {
         SQLQuery query = getAppropriateSessionNew().createSQLQuery("select *"
                 + " from user u"
-                + " where (u.username ='" + username+"';"
+                + " where u.username ='" + username+"';"
         );
 
         query.setResultTransformer(Transformers.aliasToBean(User.class));
@@ -57,8 +57,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
     }
 
     @Override
-    public void createUser(User u) {
+    public User createUser(User u) {
         persist(u);
+        return u;
     }
     
 }

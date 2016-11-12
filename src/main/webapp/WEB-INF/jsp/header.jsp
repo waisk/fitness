@@ -67,6 +67,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li id="homeNav"><a href="/fitness"><spring:message code="Home" text="Home"/></a></li>
+                                <li id="trainingNav"><a href="/fitness/workout"><spring:message code="Training" text="Training"/></a></li>
                                 <li id="aboutNav"><a href="/about"><spring:message code="About" text="About"/></a></li>
                                 <li id="servicesNav" ><a href="/fitness/services"><spring:message code="Services" text="Services"/></a></li>
                                 <li id="testimonialsNav"><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>

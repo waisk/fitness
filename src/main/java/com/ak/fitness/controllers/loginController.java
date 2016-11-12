@@ -113,13 +113,13 @@ public class loginController {
             request.getSession().setAttribute("isLoginValid", false);
             return "index";
         }
-        session = request.getSession(false);
+        session = request.getSession();
         if (u != null) {
             isUserValide = true;
            
             session.setMaxInactiveInterval(1000);
-            //session.setAttribute("userId", u.getIdUser());
-            redirect = "training/new/";
+            session.setAttribute("user", u);
+            redirect = "workout";
             return redirect;
 
         } else {

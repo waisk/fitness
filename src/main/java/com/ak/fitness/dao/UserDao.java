@@ -19,6 +19,6 @@ public interface UserDao {
 
     public User validateUsername(String username);
 
-    public void createUser(User u);
+    public User createUser(User u);
 
 }

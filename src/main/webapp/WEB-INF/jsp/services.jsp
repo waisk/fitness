@@ -45,7 +45,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
 
         <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
-
+        
+        <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/serviceRegistration.js"></script>
         
         <script src="${pageContext.request.contextPath}/webjars/jquery-validation/1.15.1/jquery.validate.min.js"></script>

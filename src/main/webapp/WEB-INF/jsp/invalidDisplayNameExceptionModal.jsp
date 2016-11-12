@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<div class="modal fade" id="invalidEmailExceptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+<div class="modal fade" id="invalidDisplayNameExceptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body" style="overflow-x: auto">

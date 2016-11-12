@@ -65,13 +65,13 @@ public class RegistrationController {
         
         
         //If email and username unique, validate user credit card number
-        try{
-            registrationService.validateCreditCardToken(json.get("creditCardToken").toString());
-        }catch(Exception ex){
-            response.setStatus(400);
-            response.getWriter().write("invalidCreditCard");
-            throw ex;
-        }
+//        try{
+//            registrationService.validateCreditCardToken(json.get("creditCardToken").toString());
+//        }catch(Exception ex){
+//            response.setStatus(400);
+//            response.getWriter().write("invalidCreditCard");
+//            throw ex;
+//        }
         
         try{
             u = registrationService.registerUser(json);

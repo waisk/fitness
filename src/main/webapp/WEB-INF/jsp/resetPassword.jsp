@@ -58,7 +58,7 @@
                                 <div class="form-group resetPassword">
                                     <label class="sr-only" for="email"><spring:message code="EmailAddress" text="Email address"/></label>
                                     <spring:message code="EmailAddress" var="EmailAddress" text="Email address"/>
-                                    <input type="email" class="form-control" id="email" placeholder="${EmailAddress}" required>
+                                    <input type="email" class="form-control" id="reset_email" placeholder="${EmailAddress}" required>
                                 </div>
                             </div>
                             <div class="control-group resetPassword">

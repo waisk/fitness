@@ -27,6 +27,14 @@ function make_base_auth(user, password) {
   return "Basic " + hash;
 }
 
+function logIn(email, password){
+    
+    $("#email").val(email).change();
+    $("#password").val(password).change();
+    
+    $("#signInBtn").trigger( "click" );
+}
+
 jQuery(document).ready(function ($) {
     
     $("#signInBtn").click(function(event) {

@@ -78,10 +78,11 @@ public class SpringDatabaseConfig extends WebMvcConfigurerAdapter{
    } 
  
    @Bean
+   @Qualifier("transactionManager")
    @Autowired
-   public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+   public HibernateTransactionManager transactionManager() {
       HibernateTransactionManager txManager = new HibernateTransactionManager();
-      txManager.setSessionFactory(sessionFactory);
+      txManager.setSessionFactory(sessionFactory());
  
       return txManager;
    }
