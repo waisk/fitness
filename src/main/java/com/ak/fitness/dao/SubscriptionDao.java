@@ -5,6 +5,8 @@
  */
 package com.ak.fitness.dao;
 
+import com.ak.fitness.entities.Subscription;
+
 /**
  *
  * @author wais
