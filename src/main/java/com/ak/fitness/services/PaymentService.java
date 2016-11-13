@@ -126,7 +126,14 @@ public class PaymentService {
 			// the call and to send a unique request id
 			// (that ensures idempotency). The SDK generates
 			// a request id if you do not pass one explicitly.
-			APIContext apiContext = new APIContext(clientID, clientSecret, mode);
+                        
+                        
+                        //example
+                    // Replace these values with your clientId and secret. You can use these to get started right now.
+                    String clientId = "AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS";
+                    String clientSecret = "EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL";
+                        
+			APIContext apiContext = new APIContext(clientId, clientSecret, "sandbox");
 
 			// Create a payment by posting to the APIService
 			// using a valid AccessToken
