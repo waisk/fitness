@@ -130,9 +130,11 @@ public class PaymentService {
                         
                         //example
                     // Replace these values with your clientId and secret. You can use these to get started right now.
-                    String clientId = "AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS";
-                    String clientSecret = "EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL";
+                    String clientId = "Aa7Bw1nkj6--HLSBIUo0-H-sR-F_12P0e2qzVwMyYt2Zx0R1qJlbu14_tsSVch085hpjEr4bEOSF24IF";
+                    String clientSecret = "EDaQT5qOMkb8GiRocpOgPPmDkdFVH4DCopeaBhApztzVmQhoBI7FDhK4mgBKBOtFf5apNVM3t96A5A4v";
                         
+                    
+                    //change sandbox to live before PROD
 			APIContext apiContext = new APIContext(clientId, clientSecret, "sandbox");
 
 			// Create a payment by posting to the APIService
