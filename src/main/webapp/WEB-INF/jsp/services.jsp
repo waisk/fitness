@@ -49,9 +49,12 @@
         <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/serviceRegistration.js"></script>
         
+        <!-- Bootstrap form helper js-->
+        <script src="${pageContext.request.contextPath}/webjars/bootstrap-form-helpers/2.3.0/dist/js/bootstrap-formhelpers.min.js"></script>
+
+        
         <script src="${pageContext.request.contextPath}/webjars/jquery-validation/1.15.1/jquery.validate.min.js"></script>
-        <script src="${pageContext.request.contextPath}/webjars/jquery.payment/1.4.1/lib/jquery.payment.min.js"></script>
-        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <!--<script src="${pageContext.request.contextPath}/webjars/jquery.payment/1.4.1/lib/jquery.payment.min.js"></script>-->
 
 
     </head>

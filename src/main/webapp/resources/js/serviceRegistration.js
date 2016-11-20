@@ -36,13 +36,45 @@ jQuery(document).ready(function ($) {
             $("#registerBtn").prop('disabled', true);
         }
     });
+    
+    //make sure that password and confirmPassword are the same
+    $("input[type=password]").keyup(function () {
 
+        if ($("#r_password").val() == $("#passwordConfirmation").val()) {
+            $("#pwmatch").removeClass("glyphicon-remove");
+//            $("#pwmatch").addClass("glyphicon-ok");
+//            $("#pwmatch").css("color", "#00A41E");
+            $("#passwordNoMatch").hide();
+            $("#pwmatch").hide();
+        } else {
+            $("#passwordNoMatch").show();
+            $("#pwmatch").show();
+            $("#pwmatch").removeClass("glyphicon-ok");
+            $("#pwmatch").addClass("glyphicon-remove");
+            $("#pwmatch").css("color", "#FF0004");
+            $("#registerBtn").prop("disabled", true);
+        }
+    });
+    
 });
+
 
 function paymentFormReady() {
 
+    if (validateEmail($("#r_email").val())) {
+        $("#emailError").removeClass("glyphicon-remove");
+        $("#emailNotValid").hide();
+        $("#emailError").hide();
+    } else {
+        $("#emailNotValid").show();
+        $("#emailError").show();
+        $("#emailError").removeClass("glyphicon-ok");
+        $("#emailError").addClass("glyphicon-remove");
+        $("#emailError").css("color", "#FF0004");
+    }
+
     if ($("#firstName").val() != "" && $("#lastName").val() != "" && $("#displayName").val() != "" && $("#r_email").val() != ""
-            && $("#r_password").val() != "" && $("#passwordConfirmation").val() != "") {
+            && $("#r_password").val() != "" && $("#passwordConfirmation").val() != "" && (validateEmail($("#r_email").val())==true)) {
         return true;
     } else {
         return false;
@@ -50,6 +82,10 @@ function paymentFormReady() {
 
 }
 
+function validateEmail(email) {
+  var re = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+  return re.test(email);
+}
 
 
 function registerUser() {

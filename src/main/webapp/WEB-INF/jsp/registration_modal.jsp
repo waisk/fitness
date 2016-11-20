@@ -22,30 +22,35 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="first_name" id="firstName" class="form-control" placeholder="<spring:message code="FirstName" text="First Name"/>" tabindex="1">
+                                        <input required type="text" name="first_name" id="firstName" class="form-control" placeholder="<spring:message code="FirstName" text="First Name"/>" tabindex="1">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="last_name" id="lastName" class="form-control" placeholder="<spring:message code="LastName" text="Last Name"/>" tabindex="2">
+                                        <input required type="text" name="last_name" id="lastName" class="form-control" placeholder="<spring:message code="LastName" text="Last Name"/>" tabindex="2">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="display_name" id="displayName" class="form-control" placeholder="<spring:message code="DisplayName" text="Display Name"/>" tabindex="3">
+                                <input  required type="text" name="display_name" id="displayName" class="form-control" placeholder="<spring:message code="DisplayName" text="Display Name"/>" tabindex="3">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" id="r_email" class="form-control" placeholder="<spring:message code="EmailAddress" text="Email Address"/>" tabindex="4">
+                                <input required type="email" name="email" id="r_email" class="form-control" placeholder="<spring:message code="EmailAddress" text="Email Address"/>" tabindex="4">
+                                <span id="emailError" class="glyphicon glyphicon-remove" style="color:#FF0004; display: none" ></span> 
+                                <small id="emailNotValid" hidden="true"><spring:message code="EnterValidEmail" text="Please enter a valid email."/></small>
+                  
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password" id="r_password" class="form-control" placeholder="<spring:message code="Password" text="Password"/>" tabindex="5">
+                                        <input required type="password" name="password" id="r_password" class="form-control error" placeholder="<spring:message code="Password" text="Password"/>" tabindex="5">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="passwordConfirmation" class="form-control" placeholder="<spring:message code="ConfirmPassword" text="Confirm Password"/>" tabindex="6">
+                                        <input required type="password" name="password_confirmation" id="passwordConfirmation" class="form-control error" placeholder="<spring:message code="ConfirmPassword" text="Confirm Password"/>" tabindex="6">
+                                        <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004; display: none" ></span> 
+                                        <small id="passwordNoMatch" hidden="true"><spring:message code="PasswordNoMatch" text="Passwords does not match"/></small>
                                     </div>
                                 </div>
                             </div>
