@@ -50,7 +50,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <input type="text" class="form-control" name="card-holder-name" id="cardHolderName" placeholder="<spring:message code="CardHolderName" text="Card Holder's Name"/>">
                             </div>
                             <div class="form-group">
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <hr class="colorgraph">
                             <div class="row">
                                 <div class="col-xs-8 col-sm-9 col-md-9">

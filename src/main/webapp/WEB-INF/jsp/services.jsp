@@ -229,6 +229,8 @@
                 <%@ include file="footer.jsp" %>
 
                 <jsp:include page="registration_modal.jsp" />
+                <jsp:include page="paypal_modal.jsp" />
+                <jsp:include page="registrationErrorModal.jsp" />
 
             </div>
         </div>

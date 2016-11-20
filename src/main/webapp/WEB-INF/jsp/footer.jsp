@@ -10,7 +10,10 @@
     <body>
          <!-- FOOTER -->
             <footer>
+                <span class="pull-right">
+                <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Buy now with PayPal" />
                 <p class="pull-right"><a href="#">Back to top</a></p>
+                </span>
                 <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
             </footer>
     </body>

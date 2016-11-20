@@ -29,8 +29,7 @@ public class RegistrationService {
     @Autowired
     UserDao userDao;
 
-    @Autowired
-    SubscriptionDao subscriptionDao;
+
 
     public User registerUser(JSONObject json) {
         User u = new User();
@@ -63,17 +62,17 @@ public class RegistrationService {
             return null;
         }
 
-        if (persistedUser != null) {
-            //create subscription for user
-            Subscription subscription = new Subscription();
-            subscription.setIduser(persistedUser.getIduser());
-            subscription.setPackage1(trainingPackage);
-            subscription.setValid(true);
-            subscription.setCreationdate(new Date());
-            subscription.setUpdatedate(new Date());
-            //set date for subscription too
-            subscriptionDao.createSubscription(subscription);
-        }
+//        if (persistedUser != null) {
+//            //create subscription for user => dont create subscription now, create subscription after paypal payment account made
+//            Subscription subscription = new Subscription();
+//            subscription.setIduser(persistedUser.getIduser());
+//            subscription.setPackage1(trainingPackage);
+//            subscription.setValid(true);
+//            subscription.setCreationdate(new Date());
+//            subscription.setUpdatedate(new Date());
+//            //set date for subscription too
+//            subscriptionDao.createSubscription(subscription);
+//        }
 
         return persistedUser;
 
