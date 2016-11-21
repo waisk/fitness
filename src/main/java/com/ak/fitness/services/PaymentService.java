@@ -27,12 +27,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author wais
  */
 @Service("paymentService")
+@Transactional(value = "transactionManager")
 public class PaymentService {
 
     private static final long serialVersionUID = 1L;

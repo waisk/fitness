@@ -93,7 +93,7 @@ public class RegistrationController {
 //            throw ex;
         }
         //If valid, register user && open session for new user
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
         
         //set user in the session
         session.setAttribute("user", u);

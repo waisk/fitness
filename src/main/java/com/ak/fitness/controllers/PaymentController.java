@@ -8,6 +8,7 @@ package com.ak.fitness.controllers;
 import com.ak.fitness.entities.User;
 import com.ak.fitness.services.PaymentService;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class PaymentController {
     PaymentService paymentService;
 
     @RequestMapping(value = "/{trainingPackageNo}", method = RequestMethod.GET)
-    public String doPayment(@PathVariable("trainingPackageNo") String trainingPackageNo, HttpServletRequest request) {
+    public String doPayment(@PathVariable("trainingPackageNo") String trainingPackageNo, HttpServletRequest request, HttpServletResponse response) {
 
         HttpSession session = request.getSession(false);
 
