@@ -7,10 +7,11 @@ package com.ak.fitness.controllers;
 
 import com.ak.fitness.entities.User;
 import com.ak.fitness.services.PaymentService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,21 +27,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/payment")
 public class PaymentController {
 
+    private static final Logger LOGGER = Logger.getLogger(PaymentController.class.getName());
+
     @Autowired
     PaymentService paymentService;
 
     @RequestMapping(value = "/{trainingPackageNo}", method = RequestMethod.GET)
     public String doPayment(@PathVariable("trainingPackageNo") String trainingPackageNo, HttpServletRequest request, HttpServletResponse response) {
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = null;
+        User u = null;
+        try {
+            session = request.getSession(false);
+            //what happens if user lose session between paypal and here
+            //LOGGER.log(Level.INFO, null, "Subscription failed for user : recreate a subscription for userID = "+u.getIduser()+" and trainingPackage = "+trainingPackage);
+            u = (User) session.getAttribute("user");
 
-        User u = (User) session.getAttribute("user");
-
-        //redirects here after Paypal successful
-        //1.
-        //2.login in user if not logged in (user must be logged in => unless session timeout)
-        if (session == null && u == null) {
-            //login user
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, null, "NO session or no user : session = " + session + " and user = " + u.getIduser());
+            return "services";
         }
 
         //add new subscription to user 
@@ -58,7 +63,7 @@ public class PaymentController {
         HttpSession session = request.getSession(false);
 
         User u = (User) session.getAttribute("user");
-        
+
         //map.addAttribute("user", u);
         map.addAttribute("trainingPackage", trainingPackageNo);
         //if sets to 2 => means cancelled

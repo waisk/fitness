@@ -179,6 +179,7 @@ public class PaymentService {
             subscriptionDao.createSubscription(subscription);
 
         } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, null, "Subscription failed for user : recreate a subscription for userID = "+u.getIduser()+" and trainingPackage = "+trainingPackage);
             LOGGER.log(Level.SEVERE, null, ex.getMessage());
         }
     }
