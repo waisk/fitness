@@ -122,7 +122,3 @@
         </div>
     </div>
 </div>
-                                <jsp:include page="invalidCreditCardModal.jsp" />
-                                <jsp:include page="invalidDisplayNameExceptionModal.jsp" />
-                                <jsp:include page="invalidEmailExceptionModal.jsp" />
-                            

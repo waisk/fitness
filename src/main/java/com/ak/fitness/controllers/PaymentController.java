@@ -58,7 +58,7 @@ public class PaymentController {
 
         User u = (User) session.getAttribute("user");
         
-        map.addAttribute("user", u);
+        //map.addAttribute("user", u);
         map.addAttribute("trainingPackage", trainingPackageNo);
         //if sets to 2 => means cancelled
         map.addAttribute("isPaymentCancelled", true);

@@ -63,6 +63,10 @@
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
         <script type="text/javascript">
             $('#servicesNav').addClass('active');
+            
+            oldTrainingPackage = "${trainingPackage}";
+            isPaymentCancelled = "${isPaymentCancelled}";
+            
         </script>
         <div class="container">
             <div class="container marketing">
@@ -235,6 +239,9 @@
                 <jsp:include page="paypal_modal.jsp" />
                 <jsp:include page="registrationErrorModal.jsp" />
 
+                 <jsp:include page="invalidCreditCardModal.jsp" />
+                 <jsp:include page="invalidDisplayNameExceptionModal.jsp" />
+                 <jsp:include page="invalidEmailExceptionModal.jsp" />
             </div>
         </div>
 

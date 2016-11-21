@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,35 +33,44 @@ public class RegistrationController {
     RegistrationService registrationService;
     
     @ResponseBody
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public void register(@RequestBody JSONObject json, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @RequestMapping(value = "", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
+    public JSONObject register(@RequestBody JSONObject json, HttpServletRequest request, HttpServletResponse response) {
 
+        JSONObject jsonResponse = new JSONObject();
         System.out.println("start registration");
         //verify if email is unique
         User u = null;
         try{
             u = registrationService.validateEmail(json.get("email").toString());
             if(u != null){
-                throw new Exception();
+//                throw new Exception();
+                jsonResponse.put("message", "invalidEmailException");
+                return jsonResponse;
             }
         }catch(Exception ex){
             //If not unique, throw error
-            response.setStatus(400);
-            response.getWriter().write("invalidEmailException");
-            throw ex;
+            jsonResponse.put("message", "internalError");
+            return jsonResponse;
+//            response.setStatus(400);
+//            response.getWriter().write("invalidEmailException");
+//            throw ex;
         }
         
         //verify if username is unique
         try{
             u = registrationService.validateUsername(json.get("displayName").toString());
             if(u != null){
-                throw new Exception();
+//                throw new Exception();
+                jsonResponse.put("message", "invalidDisplayNameException");
+                return jsonResponse;
             }
         }catch(Exception ex){
             //If not unique, throw error
-            response.setStatus(400);
-            response.getWriter().write("invalidDisplayNameException");
-            throw ex;
+//            response.setStatus(400);
+//            response.getWriter().write("invalidDisplayNameException");
+//            throw ex;
+            jsonResponse.put("message", "internalError");
+            return jsonResponse;
         }
         
         
@@ -76,9 +86,11 @@ public class RegistrationController {
         try{
             u = registrationService.registerUser(json);
         }catch(Exception ex){
-            response.setStatus(400);
-            response.getWriter().write("internalError");
-            throw ex;
+            jsonResponse.put("message", "internalError");
+            return jsonResponse;
+//            response.setStatus(400);
+//            response.getWriter().write("internalError");
+//            throw ex;
         }
         //If valid, register user && open session for new user
         HttpSession session = request.getSession();
@@ -88,7 +100,8 @@ public class RegistrationController {
         
         System.out.println("end of registration");
         response.setStatus(200);
-
+        jsonResponse.put("message", "success");
+        return jsonResponse;
         //return "redirect:";
     }
 }
