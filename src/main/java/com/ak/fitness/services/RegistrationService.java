@@ -10,6 +10,7 @@ import com.ak.fitness.dao.SubscriptionDao;
 import com.ak.fitness.dao.UserDao;
 import com.ak.fitness.entities.Subscription;
 import com.ak.fitness.entities.User;
+import com.ak.fitness.util.EncryptionUtil;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +49,7 @@ public class RegistrationService {
         u.setFirstname(firstName);
         u.setLastname(lastName);
         u.setUsername(userName);
-        u.setPassword(password);
+        u.setPassword(EncryptionUtil.encrypt(password));
         u.setCreationdate(new Date());
         u.setAdmin(false);
         u.setEmail(email);

@@ -7,6 +7,7 @@ package com.ak.fitness.services;
 
 import com.ak.fitness.dao.UserDao;
 import com.ak.fitness.entities.User;
+import com.ak.fitness.util.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,6 @@ public class LoginService {
     
     public User valiateUserCredentials(String username, String password){
         
-        return userDao.valiateUserCredentials(username, password);
+        return userDao.valiateUserCredentials(username,  EncryptionUtil.encrypt(password));
     }
 }
