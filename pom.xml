@@ -291,6 +291,12 @@
             <version>1.2.5</version>
         </dependency>
         
+        <!-- https://mvnrepository.com/artifact/org.webjars/Magnific-Popup -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>Magnific-Popup</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         
         <!-- https://mvnrepository.com/artifact/com.paypal.sdk/paypal-core -->
         <dependency>

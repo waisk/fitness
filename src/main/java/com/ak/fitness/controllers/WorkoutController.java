@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/workout")
 public class WorkoutController {
     
-    
-    @ResponseBody
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String goToWorkoutPage(ModelMap map, HttpServletRequest request, HttpServletResponse response){
         

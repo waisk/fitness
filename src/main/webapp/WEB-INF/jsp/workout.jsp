@@ -35,7 +35,7 @@
 
         <link href="${pageContext.request.contextPath}/resources/css/services.css" rel="stylesheet">
 
-        <link href="${pageContext.request.contextPath}/resources/css/registration.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/webjars/Magnific-Popup/1.0.0/magnific-popup.css" rel="stylesheet">
 
         <!-- jQuery-->
         <script src="${pageContext.request.contextPath}/webjars/jquery/2.2.3/jquery.min.js"></script>
@@ -45,21 +45,90 @@
         <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
 
         <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
-        
+
         <script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/serviceRegistration.js"></script>
-        
+        <script src="${pageContext.request.contextPath}/resources/js/workout.js"></script>
+
         <!-- Bootstrap form helper js-->
         <script src="${pageContext.request.contextPath}/webjars/bootstrap-form-helpers/2.3.0/dist/js/bootstrap-formhelpers.min.js"></script>
 
-        
+
         <script src="${pageContext.request.contextPath}/webjars/jquery-validation/1.15.1/jquery.validate.min.js"></script>
+
+        <script src="${pageContext.request.contextPath}/webjars/Magnific-Popup/1.0.0/jquery.magnific-popup.min.js"></script>
+
         <!--<script src="${pageContext.request.contextPath}/webjars/jquery.payment/1.4.1/lib/jquery.payment.min.js"></script>-->
 
 
     </head>
     <%@ include file="header.jsp" %>
-    <body>
-        <h1>Hello World!</h1>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+        <%@ include file="header.jsp" %>
+        <script type="text/javascript">
+            $('#homeNav').addClass('active');
+        </script>
+
+        <div class="container margin_60" style="transform: none;" id="workoutContainer">
+            <div class="row" style="transform: none;">
+                <div class="col-md-9 col-md-offset-1">
+                    <h1>WORKOUTS</h1>
+                    <!-- End row -->
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+
+                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                <i class="arrow_triangle-right_alt2"></i>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                            </a>
+
+                        </div>
+                        <div class="col-sm-7">
+                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-sm-5">
+
+                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                <i class="arrow_triangle-right_alt2"></i>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                            </a>
+
+                        </div>
+                        <div class="col-sm-7">
+                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    
+                    <div class="row">
+                        <div class="col-sm-5">
+
+                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                <i class="arrow_triangle-right_alt2"></i>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                            </a>
+
+                        </div>
+                        <div class="col-sm-7">
+                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    
+
+                </div>
+
+            </div>
+            <!-- End row -->
+        </div>
+
     </body>
 </html>
