@@ -55,6 +55,8 @@ jQuery(document).ready(function ($) {
             async: false,
             cache: false,
             success: function(data) {
+                $('#logInDropdown').css('display','none');
+                $('#logOut').css('display','inline');
                 window.location.href = data;
             },
             error: function(xhr, status, errorThrown) {

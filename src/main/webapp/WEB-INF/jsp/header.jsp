@@ -17,7 +17,7 @@
 //                    sessionExpired = true;
 //                }
 
-                //isLoginValid =  ${isLoginValid};
+        //isLoginValid =  ${isLoginValid};
     </script>
     <body>
         <div class="container-fluid" style="background-color:#f57b20;color:#fff;height:50px;">
@@ -67,13 +67,28 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li id="homeNav"><a href="/fitness"><spring:message code="Home" text="Home"/></a></li>
+                                <%
+                                    if (session.getAttribute("user") != null) {
+                                %>
                                 <li id="trainingNav"><a href="/fitness/workout"><spring:message code="Training" text="Training"/></a></li>
+                                <%
+                                } 
+                                %>
                                 <li id="aboutNav"><a href="/about"><spring:message code="About" text="About"/></a></li>
                                 <li id="servicesNav" ><a href="/fitness/services"><spring:message code="Services" text="Services"/></a></li>
                                 <li id="testimonialsNav"><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>
                                 <li id="contactNav"><a href="#contact"><spring:message code="Contact" text="Contact"/></a></li>
 
-                                <li class="dropdown">
+                                <%
+                                    if (session.getAttribute("user") != null) {
+                                %>
+                                <li id="logOut" ><a href="/fitness/logout"><spring:message code="Logout" text="Logout"/></a></li>
+
+                                <%
+                                } else {
+                                %>
+
+                                <li class="dropdown" id="logInDropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><spring:message code="Login" text="Login"/></b> <span class="caret"></span></a>
                                     <ul id="login-dp" class="dropdown-menu">
                                         <li>
@@ -108,6 +123,7 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <%}%>
 
                             </ul>
                         </div>
@@ -116,11 +132,11 @@
 
             </div>
         </div>
-                                                            <jsp:include page="forgot_password_modal.jsp" />
-                                                            <jsp:include page="invalid_credentials_modal.jsp" />
-                                                            <jsp:include page="session_expired_modal.jsp" />
-                                                            
-                                                            
-                                                            
+        <jsp:include page="forgot_password_modal.jsp" />
+        <jsp:include page="invalid_credentials_modal.jsp" />
+        <jsp:include page="session_expired_modal.jsp" />
+
+
+
     </body>
 </html>

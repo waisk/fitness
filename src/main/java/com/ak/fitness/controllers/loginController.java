@@ -34,22 +34,22 @@ public class loginController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(ModelMap map, HttpServletRequest request, HttpServletResponse response) {
-        map.addAttribute("isLoginValid", true);
+//        map.addAttribute("isLoginValid", true);
         //map.addAttribute("supplierPovOnlineId", 0);
-
-        HttpSession session = request.getSession(false);
-
-        if (session != null) {
-            if (session.getAttribute("isLoginValid") != null) {
-                boolean a = (boolean) session.getAttribute("isLoginValid");
-
-                map.addAttribute("isLoginValid", a);
-            }
-            //if reach login page from anywhere, close session
-            session.invalidate();
-        }
-
-        request.getSession().setAttribute("userId", null);
+//
+//        HttpSession session = request.getSession(false);
+//
+//        if (session != null) {
+//            if (session.getAttribute("isLoginValid") != null) {
+//                boolean a = (boolean) session.getAttribute("isLoginValid");
+//
+//                map.addAttribute("isLoginValid", a);
+//            }
+//            //if reach login page from anywhere, close session
+//            session.invalidate();
+//        }
+//
+//        request.getSession().setAttribute("userId", null);
 
         return "index";
     }
