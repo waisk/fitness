@@ -27,19 +27,19 @@ function make_base_auth(user, password) {
   return "Basic " + hash;
 }
 
-function logIn(email, password){
-    
-    $("#email").val(email).change();
-    $("#password").val(password).change();
-    
-    $("#signInBtn").trigger( "click" );
-}
+//function logIn(email, password){
+//    
+//    $("#email").val(email).change();
+//    $("#password").val(password).change();
+//    
+//    $("#signInBtn").trigger( "click" );
+//}
 
 jQuery(document).ready(function ($) {
     
     $("#signInBtn").click(function(event) {
         event.preventDefault();
-        var username = $("#email").val();
+        var username = $("#username").val();
         var password = $("#password").val();
         
         var url = "/fitness/verifyLogin";

@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "user", catalog = "akfitness", schema = "akfitness", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"iduser"}),
-    @UniqueConstraint(columnNames = {"email"}),
+//    @UniqueConstraint(columnNames = {"email"}),
     @UniqueConstraint(columnNames = {"username"})})
 @XmlRootElement
 @NamedQueries({

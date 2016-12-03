@@ -22,7 +22,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
     public User valiateUserCredentials(String username, String password) {
         SQLQuery query = getAppropriateSessionNew().createSQLQuery("select distinct *"
                 + " from user u"
-                + " where (u.email ='" + username + "' OR u.username ='" + username + "') AND u.password ='" + password + "';"
+                + " where u.username ='" + username + "' AND u.password ='" + password + "';"
         );
 
         query.setResultTransformer(Transformers.aliasToBean(User.class));

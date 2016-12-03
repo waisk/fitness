@@ -70,4 +70,5 @@ public class PaymentController {
         map.addAttribute("isPaymentCancelled", true);
         return "services";
     }
+    
 }

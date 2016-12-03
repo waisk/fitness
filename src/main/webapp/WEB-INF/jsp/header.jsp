@@ -96,9 +96,9 @@
                                                 <div class="col-md-12">
                                                     <form class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
                                                         <div class="form-group">
-                                                            <label class="sr-only" for="email"><spring:message code="EmailAddress" text="Email address"/></label>
-                                                            <spring:message code="EmailAddress" var="EmailAddress" text="Email address"/>
-                                                            <input type="email" class="form-control" id="email" placeholder="${EmailAddress}" required>
+                                                            <label class="sr-only" for="username"><spring:message code="Username" text="Username"/></label>
+                                                            <spring:message code="Username" var="Username" text="Username"/>
+                                                            <input type="input" class="form-control" id="username" placeholder="${Username}" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="sr-only" for="password"><spring:message code="Password" text="Password"/></label>

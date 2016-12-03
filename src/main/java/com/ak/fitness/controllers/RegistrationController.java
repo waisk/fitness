@@ -40,21 +40,19 @@ public class RegistrationController {
         System.out.println("start registration");
         //verify if email is unique
         User u = null;
-        try{
-            u = registrationService.validateEmail(json.get("email").toString());
-            if(u != null){
-//                throw new Exception();
-                jsonResponse.put("message", "invalidEmailException");
-                return jsonResponse;
-            }
-        }catch(Exception ex){
-            //If not unique, throw error
-            jsonResponse.put("message", "internalError");
-            return jsonResponse;
-//            response.setStatus(400);
-//            response.getWriter().write("invalidEmailException");
-//            throw ex;
-        }
+        
+        //TODO not sure if I email should be unique
+//        try{
+//            u = registrationService.validateEmail(json.get("email").toString());
+//            if(u != null){
+//                jsonResponse.put("message", "invalidEmailException");
+//                return jsonResponse;
+//            }
+//        }catch(Exception ex){
+//            //If not unique, throw error
+//            jsonResponse.put("message", "internalError");
+//            return jsonResponse;
+//        }
         
         //verify if username is unique
         try{
@@ -97,6 +95,8 @@ public class RegistrationController {
         
         //set user in the session
         session.setAttribute("user", u);
+        int trainingPackage = (Integer) json.get("trainingPackage");
+        session.setAttribute("trainingPackage", trainingPackage);
         
         System.out.println("end of registration");
         response.setStatus(200);
