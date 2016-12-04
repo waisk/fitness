@@ -75,16 +75,16 @@ jQuery(document).ready(function ($) {
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: "/fitness/forgotPassword",
+            url: "/fitness/resetPassword/forgot",
             data: jsonRequest,
             success: function (data) {
                 $('#forgotPasswordModal').modal('hide');
-                $('#forgotPasswordSent').modal();
+                $('#forgotPasswordSentModal').modal();
             },
             error: function (e) {
                 console.log("ERROR: ", e);
                 $('#forgotPasswordModal').modal('hide');
-                $('#forgotPasswordErrorModal').modal();
+                $('#internalErrorModal').modal();
             }
         });
     });

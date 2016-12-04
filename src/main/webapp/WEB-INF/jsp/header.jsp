@@ -132,7 +132,8 @@
 
             </div>
         </div>
-        <jsp:include page="forgot_password_modal.jsp" />
+        <jsp:include page="forgotPasswordModal.jsp" />
+        <jsp:include page="systemErrorModal.jsp" />
         <jsp:include page="invalid_credentials_modal.jsp" />
         <jsp:include page="session_expired_modal.jsp" />
 

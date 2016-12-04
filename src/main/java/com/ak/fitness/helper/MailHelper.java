@@ -5,9 +5,11 @@
  */
 package com.ak.fitness.helper;
 
+import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,9 @@ public class MailHelper {
 
     @Autowired
     private MailSender mailSender;
+    
+    @Autowired
+    private ResourceBundleMessageSource messageSource;
    
     public void sendRegistrationMail(JSONObject json) {
 
@@ -59,40 +64,28 @@ public class MailHelper {
                 
     }
     
-    public void sendForgotPasswordMail(JSONObject json) {
-
-        SimpleMailMessage message = new SimpleMailMessage();
-        String userEmail = json.get("email").toString();
-        message.setFrom("akfitness@gmail.com");
-        message.setTo("khedriwais@hotmail.com");
-        message.setSubject("User forgot password");
-        message.setText("email: " + userEmail + "\n"
-        );
-        mailSender.send(message);
-        
-        sendForgotPasswordMailToUser(userEmail);
-    }
-    
-    private void sendForgotPasswordMailToUser(String userEmail){
+    public void sendForgotPasswordMailToUser(String uri, String email, String token, Locale locale) throws Exception{
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setFrom("akfitness@gmail.com");
-        message.setTo(userEmail);
-        message.setSubject("AKFitness: Forgotten Password");
-        message.setText("Hi: \n\n"
-                        + "Please click on this link to reset your password. \n\n"
-                        + "Thank you."
+        message.setTo(email);
+        message.setSubject("AKFitness: " + messageSource.getMessage("ResetYourPassword", null, locale));
+        message.setText(messageSource.getMessage("Hi", null, locale)+": \n\n"
+                        + messageSource.getMessage("ClickLinkPassword", null, locale)+ " " +uri+"/"+"?token="+token+"&locale="+locale.getLanguage()+"\n\n"
+                        + messageSource.getMessage("ThankYou", null, locale)
                 );
         mailSender.send(message);
     }
     
     
+    
+    //Send to 
     public void sendContactFormMessageToAdmin(String firstName, String lastName, String userEmail, String contactMessage){
         
         SimpleMailMessage message = new SimpleMailMessage();
         
-        message.setFrom("akfitness@gmail.com");
-        message.setTo(userEmail);
+        message.setFrom(userEmail);
+        message.setTo("akfitness@gmail.com");
         message.setSubject("AKFitness: Contact Message");
         message.setText(
                 "From: " +firstName + " " + lastName +  "\n\n"

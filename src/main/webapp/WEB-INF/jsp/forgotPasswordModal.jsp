@@ -27,24 +27,35 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="forgotPasswordSent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+               
+<div class="modal fade" id="forgotPasswordSentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body" style="overflow-x: auto">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <spring:message code="ForgotPasswordSent" text="You will receive an email with your password soon."/>
+                <spring:message code="FollowResetInstructions" text="Follow the instructions in the email to reset your password"/><br/>
+                <spring:message code="EmailDelay" text="Your email may take up to 5 minutes to arrive (depending on your email service provider)."/><br/>
+                <spring:message code="IfNoEmail" text="If you don't receive an email, try the following:"/><br/>
+                <spring:message code="CheckSpam" text="Check your spam or junk mail folder"/><br/>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="forgotPasswordErrorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body" style="overflow-x: auto">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <spring:message code="RxOrdering.ServerError" text="AKFitness Server Error: Please try again later"/>
-            </div>
+            
+<div class="modal fade" id="emailDoesNotExist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="alert alert-danger">
+            <spring:message code="EmailDoesNotExist" text="This email does not exist in our system. Please verify email."/>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="wrongTokenOrTokenExpired" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="alert alert-dismissible alert-danger">
+            <spring:message code="WrongTokenOrTokenExpired" text="Wrong token or token is expired."/>
         </div>
     </div>
 </div>

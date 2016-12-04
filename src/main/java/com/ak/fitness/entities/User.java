@@ -6,8 +6,10 @@
 package com.ak.fitness.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +25,8 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -81,6 +86,8 @@ public class User implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationdate;
     private Boolean admin;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
+    private Collection<Usertoken> usertokenCollection;
 
     public User() {
     }
@@ -185,6 +192,16 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "com.ak.fitness.entities.User[ iduser=" + iduser + " ]";
+    }
+
+    @XmlTransient
+    @JsonIgnore
+    public Collection<Usertoken> getUsertokenCollection() {
+        return usertokenCollection;
+    }
+
+    public void setUsertokenCollection(Collection<Usertoken> usertokenCollection) {
+        this.usertokenCollection = usertokenCollection;
     }
     
 }

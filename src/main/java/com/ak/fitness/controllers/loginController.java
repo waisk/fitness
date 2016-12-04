@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import org.eclipse.persistence.internal.oxm.conversion.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 /**
  *
  * @author wais
@@ -31,6 +32,9 @@ public class loginController {
     
     @Autowired
     LoginService loginService;
+    
+    @Autowired
+    CookieLocaleResolver localeResolver;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(ModelMap map, HttpServletRequest request, HttpServletResponse response) {

@@ -45,56 +45,59 @@
 
     </head>
     <body>
-        <%--<%@ include file="header.jsp" %>--%>
-        <div class="container centered" style="width: 100%">
-            <div class="col-sm-12 col-md-4 col-lg-4 col-sm-offset-0 col-md-offset-4 col-lg-offset-4" >
-                <div class="form-group">
-                    <div class="panel panel-primary" id="password_modal">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Change Password <span class="extra-title muted"></span></h3>
-                        </div>
-                        <div class="panel-body form-horizontal">
-                            <div class="control-group">
-                                <div class="form-group resetPassword">
-                                    <label class="sr-only" for="email"><spring:message code="EmailAddress" text="Email address"/></label>
-                                    <spring:message code="EmailAddress" var="EmailAddress" text="Email address"/>
-                                    <input type="email" class="form-control" id="reset_email" placeholder="${EmailAddress}" required>
-                                </div>
-                            </div>
-                            <div class="control-group resetPassword">
-                                <div class="form-group">
-                                    <label class="sr-only" for="newPassword"><spring:message code="NewPassword" text="New Password"/></label>
-                                    <spring:message code="NewPassword" var="NewPassword" text="New Password"/>
-                                    <input type="password" class="form-control" id="newPassword" placeholder="${NewPassword}" required>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="form-group resetPassword">
-                                    <label class="sr-only" for="confirmPassword"><spring:message code="NewPassword" text="Confirm Password"/></label>
-                                    <spring:message code="ConfirmPassword" var="ConfirmPassword" text="Confirm Password"/>
-                                    <input type="password" class="form-control" id="confirmPassword" placeholder="${ConfirmPassword}" required>
-                                </div>
-                            </div>      
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-primary" id="password_reset_save">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <script type="text/javascript">
+            accountsId = "${accountsId}";
+            var token = "${token}";
+            var ipAddress = "${ipAddress}";
+        </script>
+        
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2" style="padding-top: 70px">
 
-        <!-- Modal -->
-        <div class="modal fade" id="resetPasswordErrorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body" style="overflow-x: auto">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <spring:message code="RxOrdering.ServerError" text="AKFitness Server Error: Please try again later"/>
-                    </div>
-                </div>
+                <form class="" id="onlineBookingForm" method="POST">
+
+
+                        <!--<div class="panel-group" id="accordion">-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <spring:message code="ResetPassword" text="Reset your password"/>
+                                    </h4>
+                                </div>
+                                    <div class="panel-body">
+                                        <div class="row" style="padding: 15px">
+                                            <div class="form-group">
+                                                <spring:message code="NewPassword" text="New password"/>
+                                                <input type="password" class="form-control" id="newPassword"  required>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding: 15px">
+                                            <div class="form-group">
+                                                <spring:message code="ConfirmNewPassword" text="Confirm new password"/>
+                                                <input type="password" class="form-control" id="newPasswordConfirm" required>
+                                                <span id="newpwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004; display: none" ></span> 
+                                                <small id="newpasswordNoMatch" hidden="true"><spring:message code="PasswordNoMatch" text="Passwords do not match"/></small>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-top: 10px">
+                                            <div class="col-sm-7 col-md-7 col-sm-offset-3 col-md-offset-3">
+                                                <button class="btn btn-lg btn-primary btn-block" id="resetNewPasswordBtn" disabled><spring:message code="Submit" text="Submit"/></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!--</div>-->
+                            </div>
+                                            
+                        <!--</div>-->
+
+                </form>
+                                            <jsp:include page="forgotPasswordModal.jsp" />
+                                            <jsp:include page="systemErrorModal.jsp" />
+
             </div>
-        </div>
+        </div> <!-- /container -->
+        <jsp:include page="footer.jsp" />
 
     </body>
 </html>
