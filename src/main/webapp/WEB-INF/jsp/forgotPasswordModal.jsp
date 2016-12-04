@@ -17,8 +17,8 @@
                 <spring:message code="ForgotPasswordEmail" text="Please enter your email."/>
                 <spring:message code="Email" var="Email" text="Email"/>
                 <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                <input type="email" name="forgotEmail" id="forgot_email" class="form-control" placeholder="${Email}" required autofocus>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                    <input type="email" name="forgotEmail" id="forgot_email" class="form-control" placeholder="${Email}" required autofocus>
                 </div>
                 <br>
                 <button class="btn btn-md btn-primary " id="forgotPasswordBtn" disabled="true"><spring:message code="Send" text="Send"/></button>
@@ -27,7 +27,7 @@
         </div>
     </div>
 </div>
-               
+
 <div class="modal fade" id="forgotPasswordSentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-            
+
 <div class="modal fade" id="emailDoesNotExist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
     <div class="modal-dialog modal-sm">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -56,6 +56,20 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="alert alert-dismissible alert-danger">
             <spring:message code="WrongTokenOrTokenExpired" text="Wrong token or token is expired."/>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="resetPasswordSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="overflow-x: auto">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <spring:message code="ResetPasswordSuccess" text="You have successfully reset your password. You can now log in."/>
+                <br/>
+                <button class="btn btn-sm btn-primary pull-right" id="resetPasswordConfirmationBtn"><spring:message code="Next" text="Next"/></button>
+
+            </div>
         </div>
     </div>
 </div>

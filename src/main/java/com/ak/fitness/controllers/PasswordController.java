@@ -123,7 +123,7 @@ public class PasswordController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/ResetNewPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/new", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public JSONObject resetNewPassword(@RequestBody JSONObject json, HttpServletRequest request, HttpServletResponse response) {
 
         JSONObject jsonResponse = new JSONObject();
@@ -134,7 +134,7 @@ public class PasswordController {
         if (ut == null) {
             Logger.getLogger(PasswordController.class.getName()).log(Level.SEVERE, null, json.get("token").toString() + " : token invalid or expired");
             response.setStatus(500);
-            jsonResponse.put("message", "token expired");
+            jsonResponse.put("message", "tokenExpired");
             return jsonResponse;
         } else {
 
