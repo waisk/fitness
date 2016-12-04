@@ -10,7 +10,10 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class MailHelper {
 
     @Autowired
@@ -79,6 +82,21 @@ public class MailHelper {
         message.setText("Hi: \n\n"
                         + "Please click on this link to reset your password. \n\n"
                         + "Thank you."
+                );
+        mailSender.send(message);
+    }
+    
+    
+    public void sendContactFormMessageToAdmin(String firstName, String lastName, String userEmail, String contactMessage){
+        
+        SimpleMailMessage message = new SimpleMailMessage();
+        
+        message.setFrom("akfitness@gmail.com");
+        message.setTo(userEmail);
+        message.setSubject("AKFitness: Contact Message");
+        message.setText(
+                "From: " +firstName + " " + lastName +  "\n\n"
+                + contactMessage
                 );
         mailSender.send(message);
     }

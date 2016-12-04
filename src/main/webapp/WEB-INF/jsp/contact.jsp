@@ -42,6 +42,8 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
 
+        <script src="${pageContext.request.contextPath}/resources/js/contact.js"></script>
+
         <!-- Bootstrap form helper js-->
         <script src="${pageContext.request.contextPath}/webjars/bootstrap-form-helpers/2.3.0/dist/js/bootstrap-formhelpers.min.js"></script>
 
@@ -68,14 +70,14 @@
                                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user bigicon"></i></span>
                                     <div class="col-md-8">
                                         <spring:message code="FirstName" var="FirstName" text="First Name"/>
-                                        <input id="fname" name="name" type="text" placeholder="${FirstName}" class="form-control">
+                                        <input id="c_fname" name="name" type="text" placeholder="${FirstName}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user bigicon"></i></span>
                                     <div class="col-md-8">
                                         <spring:message code="LastName" var="LastName" text="Last Name"/>
-                                        <input id="lname" name="name" type="text" placeholder="${LastName}" class="form-control">
+                                        <input id="c_lname" name="name" type="text" placeholder="${LastName}" class="form-control">
                                     </div>
                                 </div>
 
@@ -83,7 +85,7 @@
                                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                                     <div class="col-md-8">
                                         <spring:message code="EmailAddress" var="EmailAddress" text="Email Address"/>
-                                        <input id="email" name="email" type="text" placeholder="${EmailAddress}" class="form-control" required>
+                                        <input id="c_email" name="email" type="text" placeholder="${EmailAddress}" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -99,7 +101,7 @@
                                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                                     <div class="col-md-8">
                                         <spring:message code="EnterMessageHere" var="EnterMessageHere" text="Enter your massage for us here. We will get back to you within 2 business days."/>
-                                        <textarea class="form-control messageHeight" id="message" name="message" placeholder="${EnterMessageHere}"></textarea>
+                                        <textarea class="form-control messageHeight" id="c_message" name="message" placeholder="${EnterMessageHere}"></textarea>
                                     </div>
                                 </div>
 
@@ -116,6 +118,7 @@
 
             <!-- FOOTER -->
             <%@ include file="footer.jsp" %>
+            <%@ include file="systemErrorModal.jsp" %>
 
             <div class="modal fade" id="messageSentSuccessfulModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
                 <div class="modal-dialog">
