@@ -68,7 +68,6 @@
                 <spring:message code="ResetPasswordSuccess" text="You have successfully reset your password. You can now log in."/>
                 <br/>
                 <button class="btn btn-sm btn-primary pull-right" id="resetPasswordConfirmationBtn"><spring:message code="Next" text="Next"/></button>
-
             </div>
         </div>
     </div>

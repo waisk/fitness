@@ -21,4 +21,6 @@ public interface UserDao {
 
     public User createUser(User u);
 
+    public void updateUser(User u);
+
 }
