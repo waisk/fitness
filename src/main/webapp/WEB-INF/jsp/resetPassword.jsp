@@ -46,9 +46,7 @@
     </head>
     <body>
         <script type="text/javascript">
-            accountsId = "${accountsId}";
             var token = "${token}";
-            var ipAddress = "${ipAddress}";
         </script>
         
         <div class="container">

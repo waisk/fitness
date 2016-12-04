@@ -6,13 +6,12 @@
 
 jQuery(document).ready(function($) {
    
-    $("#password_reset_save").click(function(event){
+    $("#resetNewPasswordBtn").click(function(event){
         event.preventDefault();
-        var email = $("#email").val();
         var newPassword = $("#newPassword").val();
         var confirmPassword = $("#confirmPassword").val();
 
-        var jsonRequest = JSON.stringify({"email": email, "newPassword":newPassword,"confirmPassword":confirmPassword});
+        var jsonRequest = JSON.stringify({"token": token, "newPassword":newPassword,"confirmPassword":confirmPassword});
 
         $.ajax({
             type: "POST",
