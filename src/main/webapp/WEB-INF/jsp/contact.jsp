@@ -98,7 +98,7 @@
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                                     <div class="col-md-8">
-                                        <spring:message code="EmailAddress" var="EnterMessageHere" text="Enter your massage for us here. We will get back to you within 2 business days."/>
+                                        <spring:message code="EnterMessageHere" var="EnterMessageHere" text="Enter your massage for us here. We will get back to you within 2 business days."/>
                                         <textarea class="form-control messageHeight" id="message" name="message" placeholder="${EnterMessageHere}"></textarea>
                                     </div>
                                 </div>
