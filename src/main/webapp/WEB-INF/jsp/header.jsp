@@ -77,7 +77,7 @@
                                 <li id="aboutNav"><a href="/about"><spring:message code="About" text="About"/></a></li>
                                 <li id="servicesNav" ><a href="/fitness/services"><spring:message code="Services" text="Services"/></a></li>
                                 <li id="testimonialsNav"><a href="#about"><spring:message code="Testimonials" text="Testimonials"/></a></li>
-                                <li id="contactNav"><a href="#contact"><spring:message code="Contact" text="Contact"/></a></li>
+                                <li id="contactNav"><a href="/fitness/contact"><spring:message code="Contact" text="Contact"/></a></li>
 
                                 <%
                                     if (session.getAttribute("user") != null) {
