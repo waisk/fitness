@@ -33,16 +33,16 @@ public class UserService {
     @Autowired
     UsertokenDao usertokenDao;
 
-    public User getUserWithEmail(String email) {
+    public User getUserWithUsername(String username) {
         try {
-            User u = userDao.valiateUserEmail(email);
+            User u = userDao.validateUsername(username);
             return u;
         } catch (Exception ex) {
             Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
-
+    
     public Usertoken getUserLastValidToken(User u) {
         try {
             Usertoken ut = usertokenDao.getUserLastToken(u.getIduser());

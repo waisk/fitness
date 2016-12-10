@@ -6,25 +6,25 @@
 
 var isLoginValid = true;
 supplierPovOnlineId = "";
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 //   if(isLoginValid == true){
 //        $('#invalidCredentials').modal();
 //   }
 //   
-   if(sessionExpired == true){
-       $('#sessionExpired').modal();
-   }
-   
-   if(isLoginValid == false){
-       $('#invalidCredentials').modal();
-   }
-   
+    if (sessionExpired == true) {
+        $('#sessionExpired').modal();
+    }
+
+    if (isLoginValid == false) {
+        $('#invalidCredentials').modal();
+    }
+
 });
 
 function make_base_auth(user, password) {
-  var tok = user + ':' + password;
-  var hash = btoa(tok);
-  return "Basic " + hash;
+    var tok = user + ':' + password;
+    var hash = btoa(tok);
+    return "Basic " + hash;
 }
 
 //function logIn(email, password){
@@ -36,41 +36,51 @@ function make_base_auth(user, password) {
 //}
 
 jQuery(document).ready(function ($) {
-    
-    $("#signInBtn").click(function(event) {
+
+    $("#signInBtn").click(function (event) {
         event.preventDefault();
         var username = $("#username").val();
         var password = $("#password").val();
-        
+
         var url = "/fitness/verifyLogin";
-        
+
         $.ajax({
             type: "GET",
             contentType: "application/json",
             url: url,
-            beforeSend: function (xhr){ 
-                xhr.setRequestHeader('Authorization', make_base_auth(username, password)); 
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', make_base_auth(username, password));
             },
             timeout: 100000,
             async: false,
             cache: false,
-            success: function(data) {
-                $('#logInDropdown').css('display','none');
-                $('#logOut').css('display','inline');
+            success: function (data) {
+                $('#logInDropdown').css('display', 'none');
+                $('#logOut').css('display', 'inline');
                 window.location.href = data;
             },
-            error: function(xhr, status, errorThrown) {
+            error: function (xhr, status, errorThrown) {
                 console.log("ERROR: ", errorThrown);
                 $('#invalidCredentials').modal();
             }
         });
     });
-    
+
+
+    $("#forgotUsername").on('keyup', function (event) {
+        if ($("#forgotUsername").val() !== null && $("#forgotUsername").val() !== "") {
+            $("#forgotPasswordBtn").prop("disabled", false);
+        } else {
+            $("#forgotPasswordBtn").prop("disabled", true);
+        }
+
+    });
+
     $("#forgotPasswordBtn").click(function (event) {
         event.preventDefault();
-        var email = $("#forgot_email").val();
+        var username = $("#forgotUsername").val();
 
-        var jsonRequest = JSON.stringify({"email": email});
+        var jsonRequest = JSON.stringify({"username": username});
 
         $.ajax({
             type: "POST",
@@ -83,8 +93,13 @@ jQuery(document).ready(function ($) {
             },
             error: function (e) {
                 console.log("ERROR: ", e);
-                $('#forgotPasswordModal').modal('hide');
-                $('#internalErrorModal').modal();
+                var response = e.responseJSON.message;
+                if(response === "username does not exist"){
+                    $('#usernameDoesNotExist').modal();
+                }else{
+                    $('#forgotPasswordModal').modal('hide');
+                    $('#internalErrorModal').modal();
+                }
             }
         });
     });

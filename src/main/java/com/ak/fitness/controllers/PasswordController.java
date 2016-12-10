@@ -81,8 +81,8 @@ public class PasswordController {
         Locale locale = localeResolver.resolveLocale(request);
         JSONObject jsonResponse = new JSONObject();
         try {
-            //1st verify if email exist in PatientLogin
-            User u = userService.getUserWithEmail(json.get("email").toString());
+            //1st verify if username exist in PatientLogin
+            User u = userService.getUserWithUsername(json.get("username").toString());
 
             if (u != null) {
 
@@ -96,7 +96,7 @@ public class PasswordController {
 
                 String uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/fitness/resetPassword";
                 try {
-                    resetPasswordService.sendForgotPasswordMail(uri, json.get("email").toString(), ut.getToken(), locale);
+                    resetPasswordService.sendForgotPasswordMail(uri, u.getEmail(), ut.getToken(), locale);
                 } catch (Exception ex) {
                     Logger.getLogger(PasswordController.class.getName()).log(Level.WARNING, null, ex);
                     response.setStatus(500);
@@ -107,10 +107,10 @@ public class PasswordController {
                 jsonResponse.put("message", "email sent successfully");
                 return jsonResponse;
             } else {
-                String error = "The following email " + json.get("email").toString() + " does not exist.";
+                String error = "The following username " + json.get("username").toString() + " does not exist.";
                 Logger.getLogger(PasswordController.class.getName()).log(Level.WARNING, null, error);
                 response.setStatus(500);
-                jsonResponse.put("message", "email does not exist");
+                jsonResponse.put("message", "username does not exist");
                 return jsonResponse;
             }
         } catch (Exception ex) {

@@ -14,14 +14,14 @@
                 <h3 class="panel-title"><spring:message code="ForgetPassword" text="Forgot Password?"/></h3>
             </div>
             <div class="modal-body" style="overflow-x: auto">
-                <spring:message code="ForgotPasswordEmail" text="Please enter your email."/>
-                <spring:message code="Email" var="Email" text="Email"/>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                    <input type="email" name="forgotEmail" id="forgot_email" class="form-control" placeholder="${Email}" required autofocus>
+                <spring:message code="ForgotPasswordUsername" text="Please enter your username."/>
+                <div class="input-group" style="width: 100%">
+                    <label class="sr-only" for="username"><spring:message code="Username" text="Username"/></label>
+                    <spring:message code="Username" var="Username" text="Username"/>
+                    <input type="input" class="form-control" id="forgotUsername" placeholder="${Username}" required autofocus>
                 </div>
                 <br>
-                <button class="btn btn-md btn-primary " id="forgotPasswordBtn" disabled="true"><spring:message code="Send" text="Send"/></button>
+                <button class="btn btn-md btn-primary " id="forgotPasswordBtn" disabled ><spring:message code="Send" text="Send"/></button>
 
             </div>
         </div>
@@ -42,11 +42,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="emailDoesNotExist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+<div class="modal fade" id="usernameDoesNotExist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
     <div class="modal-dialog modal-sm">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <div class="alert alert-danger">
-            <spring:message code="EmailDoesNotExist" text="This email does not exist in our system. Please verify email."/>
+            <spring:message code="UserNameDoesNotExist" text="This username does not exist in our system. Please verify username."/>
         </div>
     </div>
 </div>

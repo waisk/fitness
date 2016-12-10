@@ -9,11 +9,13 @@ import com.ak.fitness.dao.UsertokenDao;
 import com.ak.fitness.entities.Usertoken;
 import org.hibernate.SQLQuery;
 import org.hibernate.transform.Transformers;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author wais
  */
+@Repository("usertokenDao")
 public class UsertokenDaoImpl extends AbstractDao<Integer, Usertoken> implements UsertokenDao{
 
     @Override
