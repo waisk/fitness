@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <hr/>
-                    
+
                     <div class="row">
                         <div class="col-sm-5">
 
@@ -122,7 +122,103 @@
                         </div>
                     </div>
                     <hr/>
-                    
+
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Upper Body
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <br/>
+
+                                    <div class="row">
+                                        <div class="col-sm-5">
+
+                                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                                <i class="arrow_triangle-right_alt2"></i>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                                            </a>
+
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+
+                                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                                <i class="arrow_triangle-right_alt2"></i>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                                            </a>
+
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Lower Body
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+
+                                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                                <i class="arrow_triangle-right_alt2"></i>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                                            </a>
+
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+
+                                            <a href="https://www.youtube.com/watch?v=oX6I6vs1EFs" class="mfp-iframe">
+                                                <i class="arrow_triangle-right_alt2"></i>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSoBiQGDSWdMr66ubjO1wRsqdHez15GVqJn1OQud1krFoqw9GDLw" width="780" height="420" alt="Image" class="img-responsive">
+                                            </a>
+
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h4>Yoga Fundamentals (Youtube modal)</h4>
+                                            <p>Vel ex velit nemore, his no phaedrum interesset, in malis bonorum dissentiunt quo.</p>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
 
                 </div>
 
