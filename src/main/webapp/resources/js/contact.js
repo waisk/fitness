@@ -12,6 +12,12 @@ jQuery(document).ready(function ($) {
         var lastName = $("#c_lname").val();
         var email = $("#c_email").val();
         var message = $("#c_message").val();
+        
+        $('#invalidContactFormModal').modal('hide');
+        if(firstName == "" || email == "" || message ==""){
+            //throw validation error
+            $('#invalidContactFormModal').modal();
+        }else{
 
         var jsonRequest = JSON.stringify({"firstName": firstName, "lastName": lastName, "email": email, "message": message});
 
@@ -31,9 +37,10 @@ jQuery(document).ready(function ($) {
             },
             error: function (e) {
                 console.log("ERROR: ", e);
-                $('#registrationErrorModal').modal();
+                $('#internalErrorModal').modal();
             }
         });
+    }
     });
 });
 

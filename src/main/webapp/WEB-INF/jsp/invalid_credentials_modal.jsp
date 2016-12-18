@@ -9,12 +9,10 @@
 <!DOCTYPE html>
 
 <div class="modal fade" id="invalidCredentials" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body" style="overflow-x: auto">
-                <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                <spring:message code="InvalidLoginCredentials" text="Invalid email or password"/>
-            </div>
+    <div class="modal-dialog modal-sm">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="alert alert-danger">
+            <spring:message code="InvalidLoginCredentials" text="Invalid email or password"/>
         </div>
     </div>
 </div>

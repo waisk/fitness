@@ -130,6 +130,15 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="invalidContactFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+                <div class="modal-dialog modal-sm">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="alert alert-danger">
+                        <spring:message code="InvalidContactForm" text="Please make sure the following fields are not empty: first name, email, message."/>
+                    </div>
+                </div>
+            </div>                            
+
         </div>
 
     </body>

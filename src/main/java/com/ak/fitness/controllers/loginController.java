@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.http.HttpStatus;
 import org.eclipse.persistence.internal.oxm.conversion.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -114,7 +115,8 @@ public class loginController {
             u = loginService.valiateUserCredentials(username, password);
         } catch (Exception ex) {
             Logger.getLogger(loginController.class.getName()).log(Level.SEVERE, null, ex);
-            request.getSession().setAttribute("isLoginValid", false);
+            response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+//            request.getSession().setAttribute("isLoginValid", false);
             return "index";
         }
         session = request.getSession();
@@ -127,7 +129,8 @@ public class loginController {
             return redirect;
 
         } else {
-            request.getSession().setAttribute("isLoginValid", false);
+            response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+//            request.getSession().setAttribute("isLoginValid", false);
             return redirect;
         }
     }
